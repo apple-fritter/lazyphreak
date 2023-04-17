@@ -11,12 +11,18 @@ Before using these scripts, you need to have the following:
 
 ## Usage
 
-1. Clone this repository onto your EC2 instance.
-2. Run the `install-packages.sh` script to install necessary packages on your EC2 instance.
-3. Run the `build-twrp.sh` script to build a TWRP recovery image for your Android device. You will be prompted to enter your device's model number and the version of TWRP you want to build.
-4. Run the `build-lineageos.sh` script to build a LineageOS ROM for your Android device. You will be prompted to enter your device's model number and the version of LineageOS you want to build.
-5. Run the `sign-packages.sh` script to sign the flashable TWRP recovery image and LineageOS ROM with your GPG key.
+Clone this repository onto your EC2 instance.
+
+You may run the wrapper script by typing:
+```
+./wrapper.sh
+```
+Or by following the procedure below:
+1. Run the `install-packages.sh` script to install necessary packages on your EC2 instance.
+2. Run the `build-twrp.sh` script to build a TWRP recovery image for your Android device. You will be prompted to enter your device's model number and the version of TWRP you want to build.
+3. Run the `build-lineageos.sh` script to build a LineageOS ROM for your Android device. You will be prompted to enter your device's model number and the version of LineageOS you want to build.
+4. Run the `sign-packages.sh` script to sign the flashable TWRP recovery image and LineageOS ROM with your GPG key.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
