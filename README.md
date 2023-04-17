@@ -2,27 +2,50 @@
 
 This repository contains shell scripts to automate the building of `TWRP` and `LineageOS` for Android devices on `AWS EC2` instances. The scripts have been tested on `Ubuntu 20.04 LTS`.
 
-## Prerequisites
+## Wrapper script
+The wrapper script is a shell script that automates the building of TWRP and LineageOS for Android devices on AWS EC2 instances. It prompts the user for the device model number, TWRP version, and LineageOS version, and then runs the necessary scripts to install the required packages, build TWRP and LineageOS, and sign the resulting packages with `GPG`.
 
-Before using these scripts, you need to have the following:
+The following is an outline of the wrapper script's functionality:
 
-- An `AWS` account with an `EC2` instance running `Ubuntu 20.04 LTS`.
-- `Git`, `Java JDK`, `Python 3`, and necessary Android build tools installed on your EC2 instance.
+1. Prompt user for
+- device model number
+- TWRP version
+- LineageOS version
+2. Run the `install-packages.sh` script to install necessary packages on the EC2 instance
+3. Run the `build-twrp.sh` script to build a TWRP recovery image for the device, using the user input
+4. Run the `build-lineageos.sh` script to build a LineageOS ROM for the device, using the user input
+5. Run the `sign-packages.sh` script to sign the flashable TWRP recovery image and LineageOS ROM with the user's GPG key
 
-## Usage
+## Install-packages script
+The install-packages script is a shell script that installs the necessary packages for building TWRP and LineageOS on an Ubuntu 20.04 LTS EC2 instance. The script installs the following packages:
 
-Clone this repository onto your EC2 instance.
-
-You may run the wrapper script by typing:
 ```
-./wrapper.sh
+Git
+Java JDK
+Python 3
+Android build tools
 ```
-Or by following the procedure below:
-1. Run the `install-packages.sh` script to install necessary packages on your EC2 instance.
-2. Run the `build-twrp.sh` script to build a TWRP recovery image for your Android device. You will be prompted to enter your device's model number and the version of TWRP you want to build.
-3. Run the `build-lineageos.sh` script to build a LineageOS ROM for your Android device. You will be prompted to enter your device's model number and the version of LineageOS you want to build.
-4. Run the `sign-packages.sh` script to sign the flashable TWRP recovery image and LineageOS ROM with your GPG key.
+
+## Build-twrp script
+The build-twrp script is a shell script that builds a TWRP recovery image for an Android device. The script takes two arguments: the device model number and the TWRP version to build. The script performs the following steps:
+
+1. Clone the TWRP source code from GitHub
+2. Set up the build environment for the device
+3. Build the TWRP recovery image
+
+## Build-lineageos script
+The build-lineageos script is a shell script that builds a LineageOS ROM for an Android device. The script takes two arguments: the device model number and the LineageOS version to build. The script performs the following steps:
+
+1. Clone the LineageOS source code from GitHub
+2. Set up the build environment for the device
+3. Build the LineageOS ROM
+
+
+## Sign-packages script
+The sign-packages script is a shell script that signs the flashable TWRP recovery image and LineageOS ROM with the user's GPG key. The script performs the following steps:
+
+1. Import the user's GPG key
+2. Sign the TWRP recovery image and LineageOS ROM with the user's GPG key
 
 ## License
-
-This project is licensed under the [MIT License](LICENSE).
+The project is licensed under the [MIT License](LICENSE), which allows users to freely use, modify, and distribute the software. A copy of the license is included in the repository.
