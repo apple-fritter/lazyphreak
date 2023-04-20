@@ -48,4 +48,5 @@ The sign-packages script is a shell script that signs the flashable TWRP recover
 2. Sign the TWRP recovery image and LineageOS ROM with the user's GPG key
 
 ## License
-The project is licensed under the [MIT License](LICENSE), which allows users to freely use, modify, and distribute the software. A copy of the license is included in the repository.
+
+This script is released under the [MIT License](LICENSE).
